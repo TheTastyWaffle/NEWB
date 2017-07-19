@@ -1,0 +1,57 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}Edition de profil{% endblock %}
+
+{% block body %}
+    <div class="profile-section eau">
+        <div class="profile-img-section">
+            <img class="profile-img" src="{{ asset(img) }}" alt="Symfony!"/>
+        </div>
+
+        <div class="profile-field">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            {% if  err != '' %}
+                {{ err }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="profile-tech">
+        Techno. maîtrisée(s):
+        <br/>
+        {% for article in ownedTech %}
+            <a href="{{ path('removeTech', {'slug': article.idtechno}) }}">
+                {{ article.name }}
+            </a>
+        {% endfor %}
+        <br/>
+
+        Technos. disponible(s):
+        <br/>
+        {% for article in availabletech %}
+            <a href="{{ path('addTech', {'slug': article.idtechno}) }}">
+                {{ article.name }}
+            </a>
+        {% endfor %}
+        <br/>
+
+        Groupe(s) rejoins:
+        <br/>
+        {% for article in ownedGroupe %}
+            <a href="{{ path('removeGroupe', {'slug': article.idgroupe}) }}">
+                {{ article.name }}
+            </a>
+        {% endfor %}
+        <br/>
+
+        Groupe(s) disponible(s):
+        <br/>
+        {% for article in availableGroupe %}
+            <a href="{{ path('addGroupe', {'slug': article.idgroupe}) }}">
+                {{ article.name }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

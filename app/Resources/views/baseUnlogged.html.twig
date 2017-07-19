@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <a class="nav-logo" href="{{ path('index') }}">NEWB</a>
+        <span class="nav-right">
+        <a class="nav-a" href="{{ path('log') }}">Se Connecter</a>
+        <a class="nav-a" href="{{ path('sign') }}">S'enregistrer</a>
+        </span>
+    </div>
+</header>
+<div class="content">
+    {% block body %}{% endblock %}
+</div>
+<footer>
+    <div class="footer">
+        Copyright @JoJoBaGr
+    </div>
+</footer>
+</body>
+</html>

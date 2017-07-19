@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Projet" table="projet">
+    <indexes>
+      <index name="projet_user_iduser_fk" columns="idowner"/>
+    </indexes>
+    <id name="idprojet" type="integer" column="idprojet">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="45" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="description" type="text" column="description" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="begin" type="datetime" column="begin" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <field name="end" type="datetime" column="end" nullable="false"/>
+    <many-to-one field="idowner" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="idowner" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

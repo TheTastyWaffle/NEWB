@@ -1,0 +1,31 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+    <div class="search-section pink">
+        <div class="search-form">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <div class="result-section eau">
+        {% for user in arr %}
+            <a href="{{ path('displayUser', {'slug': user.iduser}) }}">
+                {{ user.email }}
+            </a>
+            Moy. tech:
+            {{ user.noteTech }}
+            Moy. humain:
+            {{ user.noteHuman }}
+            <br/>
+        {% endfor %}
+        {% if  arr|length == 0 %}
+            No results.
+        {% endif %}
+        {% if  err != '' %}
+            {{ err }}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block body %}
+    <div class="project-section red">
+        {{ project.name }}
+        <br/>
+        {{ project.begin |date('Y-m-d') }}
+        <br/>
+        {{ project.end |date('Y-m-d') }}
+        <br/>
+        {{ project.description }}
+        <br/>
+        {% if  state == 0 %}
+            <a href="{{ path('projectLeave', {'project': project.idprojet}) }}">
+                Quitter
+            </a>
+        {% elseif state == 1 %}
+            <a href="{{ path('projectJoin', {'project': project.idprojet}) }}">
+                Joindre
+            </a>
+            <a href="{{ path('projectLeave', {'project': project.idprojet}) }}">
+                Quitter
+            </a>
+        {% elseif state == 2 %}
+
+            <div class="project-delete">
+                <a href="{{ path('projectDelete', {'project': project.idprojet}) }}">
+                    Supprimer
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
