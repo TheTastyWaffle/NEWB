@@ -1,0 +1,21 @@
+language: php
+
+dist: trusty
+
+php:
+- 5.5
+- 5.4
+- hhvm
+
+before_install:
+    - composer update
+
+install:
+    - php bin/console doctrine:database:create
+    - php bin/console doctrine:schema:update --force
+
+before_script:
+    #- php bin/console server:run
+
+script:
+    - phpunit
