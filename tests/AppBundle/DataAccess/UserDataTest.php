@@ -67,7 +67,7 @@ class UserDataTest extends KernelTestCase{
         $sign->setLastname('test');
         $sign->setPassword('1234');
         $sign->setConfpassword('12344');
-        $this->assertEquals('Password doesn\'t match',UserData::insertUser($sign,$this->em));
+        $this->assertEquals('Le mot de passe et la confirmation ne correspondent pas',UserData::insertUser($sign,$this->em));
         $products = UserData::getAll($this->em);
         $this->assertCount(0, $products);
     }
@@ -80,7 +80,7 @@ class UserDataTest extends KernelTestCase{
         $sign->setLastname('test');
         $sign->setPassword('123');
         $sign->setConfpassword('123');
-        $this->assertEquals('Password must be at least 4 characters',UserData::insertUser($sign,$this->em));
+        $this->assertEquals('Le mot de passe doit contenir au moins 4 caractères',UserData::insertUser($sign,$this->em));
         $products = UserData::getAll($this->em);
         $this->assertCount(0, $products);
     }
@@ -95,7 +95,7 @@ class UserDataTest extends KernelTestCase{
         $sign->setPassword('1234');
         $sign->setConfpassword('1234');
         $this->assertEquals('OK',UserData::insertUser($sign,$this->em));
-        $this->assertEquals('Email already used',UserData::insertUser($sign,$this->em));
+        $this->assertEquals('Email déjà utilisé',UserData::insertUser($sign,$this->em));
         $products = UserData::getAll($this->em);
         $this->assertCount(1, $products);
     }
@@ -111,7 +111,7 @@ class UserDataTest extends KernelTestCase{
         $log = new LogInForm();
         $log->setPassword('fail');
         $log->setEmail('fail');
-        $this->assertEquals('Invalide combinaison',UserData::logUser($log,$this->em,$this->session));
+        $this->assertEquals('Combinaison invalide',UserData::logUser($log,$this->em,$this->session));
     }
 
     public function testIsLogged(){
