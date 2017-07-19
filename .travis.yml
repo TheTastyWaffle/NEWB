@@ -8,6 +8,10 @@ php:
 services:
     - mysql
 
+
+
+###############BUILD###############
+
 before_install:
     - composer update
     #- mysql -e 'CREATE DATABASE IF NOT EXISTS newbDB;'
@@ -21,3 +25,16 @@ before_script:
 
 script:
     - phpunit
+
+after_script:
+    # delete db for tests (newbDB -> doctrine)
+
+
+
+############NOTIFICATION#########
+
+notifications:
+  email: false
+  slack: jobobagr:YmqvkAPUlhqRKEYXCgJ1qVQa #could be encrypted but welp
+      on_success: always  #default: change
+      on_failure: always  #default: always
