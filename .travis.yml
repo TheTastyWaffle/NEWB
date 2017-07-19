@@ -34,6 +34,8 @@ after_script:
 ############NOTIFICATION#########
 
 notifications:
-  slack: jobobagr:YmqvkAPUlhqRKEYXCgJ1qVQa#DevOps #could be encrypted but welp
+  slack:
+      rooms:
+          - jobobagr:YmqvkAPUlhqRKEYXCgJ1qVQa#devops #could be encrypted but welp
       on_success: always  #default: change
       on_failure: always  #default: always
