@@ -1,0 +1,14 @@
+{% extends 'baseUnlogged.html.twig' %}
+
+{% block body %}
+    <div class="general-section">
+        <div class="logsign-section">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            {% if  err != '' %}
+                {{ err }}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

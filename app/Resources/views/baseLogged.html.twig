@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <a class="nav-logo" href="{{ path('main') }}">NEWB</a>
+        <nav></nav>
+        <span class="nav-right">
+        <a class="nav-a" href="{{ path('research') }}">Recherche</a>
+        <a class="nav-a" href="{{ path('userEdit') }}">Edition</a>
+        <a class="nav-a" href="{{ path('project') }}">Projets</a>
+        <a class="nav-a" href="{{ path('deconnect') }}">Deconnexion</a>
+        </span>
+    </div>
+</header>
+<div class="content">
+    {% block body %}{% endblock %}
+</div>
+<footer>
+    <div class="footer">
+        Copyright @JoJoBaGr
+    </div>
+</footer>
+</body>
+</html>

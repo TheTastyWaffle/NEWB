@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\GroupeUser" table="groupe_user">
+    <indexes>
+      <index name="groupe_user___fk1" columns="iduser"/>
+      <index name="groupe_user_groupe_idgroupe_fk" columns="idgroupe"/>
+    </indexes>
+    <id name="idgroupeUser" type="integer" column="idgroupe_user">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="idgroupe" target-entity="Groupe" fetch="LAZY">
+      <join-columns>
+        <join-column name="idgroupe" referenced-column-name="idgroupe"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="iduser" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="iduser" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

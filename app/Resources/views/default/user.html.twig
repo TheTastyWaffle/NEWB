@@ -1,0 +1,89 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}{{ user.firstname }}{% endblock %}
+
+{% block body %}
+    <div class="profile-section">
+        <div class="profile-img-section">
+            <img class="profile-img" src="{{ asset(user.pplink) }}" alt="Symfony!"/>
+        </div>
+
+        <div class="profile-field">
+            {{ user.firstname }}
+            {{ user.lastname }}
+            {{ user.age }}
+            {{ user.available }}
+        </div>
+    </div>
+
+    <div class="profile-tech">
+        Techno. maîtrisées :
+        <br/>
+        {% for article in ownedTech %}
+            {{ article.note }}
+            {% if article.canNote %}
+                <a href="{{ path('noteTech', {'tech': article.idtechno, 'user' : user.iduser, 'note' : 1 }) }}">
+                    1
+                </a>
+                <a href="{{ path('noteTech', {'tech': article.idtechno, 'user' : user.iduser, 'note' : 2 }) }}">
+                    2
+                </a>
+                <a href="{{ path('noteTech', {'tech': article.idtechno, 'user' : user.iduser, 'note' : 3 }) }}">
+                    3
+                </a>
+                <a href="{{ path('noteTech', {'tech': article.idtechno, 'user' : user.iduser, 'note' : 4 }) }}">
+                    4
+                </a>
+                <a href="{{ path('noteTech', {'tech': article.idtechno, 'user' : user.iduser, 'note' : 5 }) }}">
+                    5
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="profile-tech">
+        Humain: {{ humanNote }}
+        <br/>
+        {% if canNoteHuman %}
+            <a href="{{ path('noteHuman', {'user' : user.iduser, 'note' : 1 }) }}">
+                1
+            </a>
+            <a href="{{ path('noteHuman', {'user' : user.iduser, 'note' : 2 }) }}">
+                2
+            </a>
+            <a href="{{ path('noteHuman', {'user' : user.iduser, 'note' : 3 }) }}">
+                3
+            </a>
+            <a href="{{ path('noteHuman', {'user' : user.iduser, 'note' : 4 }) }}">
+                4
+            </a>
+            <a href="{{ path('noteHuman', {'user' : user.iduser, 'note' : 5 }) }}">
+                5
+            </a>
+        {% endif %}
+        <br/>
+
+        Groupes:
+        {% for article in ownedGroupe %}
+            {{ article.name }}
+        {% endfor %}
+        <br/>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        Commentaires:
+        {% for article in comment %}
+            {{ article.text }}
+        {% endfor %}
+        <br/>
+
+        Projets:
+        <br/>
+        {% for article in project %}
+            <a href="{{ path('inviteUser', {'user': user.iduser, 'project' : article.idprojet }) }}">
+                {{ article.name }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

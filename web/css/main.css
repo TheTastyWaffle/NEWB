@@ -1,0 +1,381 @@
+header {
+
+}
+
+body {
+    margin: 0;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.4em;
+    color: #6d6e71;
+    background: white;
+    position: relative;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    line-height: 35px;
+    font-weight: normal;
+    color: #1d6166;
+}
+
+.header-content{
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0;
+    z-index: 1001;
+ }
+
+.nav-logo {
+    text-decoration: none;
+    font-size: 30px;
+    line-height: 45px;
+    margin-left: 5%;
+    color: #5d1c92;
+    -webkit-transition: color 0.3s ease-out;
+    -ms-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
+}
+
+.nav-logo:hover {
+    color: #f46177;
+}
+
+.nav-main {
+    display: block;
+    padding-left: 170px;
+}
+
+.nav-right {
+    margin-right: 50px;
+    float: right;
+    text-align: right;
+    font-size: 15px;
+    display: inline-block;
+    line-height: 3em;
+}
+
+.nav-right li {
+    display: inline-block;
+}
+
+.nav-a {
+    text-decoration: none;
+    line-height: 3em;
+    color: #666666;
+    display: block;
+    padding: 0 0.6em;
+    float: left;
+    -webkit-transition: color 0.3s ease-out;
+    -ms-transition: color 0.3s ease-out;
+    -moz-transition: color 0.3s ease-out;
+    -o-transition: color 0.3s ease-out;
+    transition: color 0.3s ease-out;
+}
+
+.nav-a:hover {
+    color: #ff584a;
+}
+
+.header-content nav {
+    float: right;
+    overflow: hidden;
+    width: auto;
+}
+
+@media (min-width: 1060px) {
+    header nav {
+        width: 30%;
+    }
+}
+
+@media (min-width: 800px) {
+    header nav {
+        width: 43%;
+    }
+}
+
+.content {
+    min-height: 550px;
+    background: #7edbd4;
+    position: relative;
+    overflow: hidden;
+    padding-top: 125px;
+}
+
+.section {
+    background: #7edbd4;
+}
+
+.panel-section {
+    color: white;
+    padding: 4px 0;
+    background: aliceblue;
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.panel {
+    display: inline-block;
+    width: 32.5%;
+    height: 100%;
+}
+
+.footer {
+    text-align: center;
+    height: 70px;
+    background-color: aliceblue;
+    border-top: 0;
+}
+
+input[type=text], input[type=password] {
+    color: white;
+    line-height: 25px;
+    margin: 0 0 0 10px;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    border-bottom: 2px solid #ff584a;;
+}
+
+input[type=file] {
+
+}
+
+input[type=submit], #form_save {
+    margin: 40px 0 0 0;
+}
+
+input[type=checkbox] {
+
+}
+
+
+/***LOG/SIGN***/
+.general-section {
+
+}
+
+.logsign-section {
+    position: absolute;
+    text-align: right;
+    width: auto;
+    display: table;
+    margin: 0 0 100px 50%;
+}
+
+
+/***HOME***/
+.msg-welcome {
+    background: #7edbd4;
+    position: relative;
+    width: auto;
+    display: table;
+    margin: 0 0 100px 50%;
+}
+
+.red {
+    background-color: #ff5f51;
+}
+
+.blue {
+    background-color: #00a0ae;
+}
+
+.brown {
+    background-color: #666666;
+}
+
+.green {
+    background-color: #00bc6f;
+}
+
+.pink {
+    background-color: #f46177;
+}
+
+.orange {
+    background-color: #dc5f13;
+}
+
+.eau {
+    background-color: #1fc3b4;
+}
+
+
+/***USER***/
+.profile-section {
+    display: flex;
+    color: white;
+}
+
+.profile-img-section {
+    width: auto;
+    height: 100%;
+    margin: 5%;
+    display: inline-flex;
+}
+
+.profile-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: 2px white solid;
+}
+
+.profile-field {
+    min-width: 35%;
+    border-top: dashed 2px white;
+    border-bottom: dashed 2px white;
+    text-align: right;
+    margin: 5% 0;
+    padding: 5% 5% 2% 5%;
+    display: inline-flex;
+}
+
+.profile-tech {
+    margin: 5% 0 5% 5%;
+    line-height: 30px;
+}
+
+.profile-tech a {
+    display: inline-flex;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 1px 5px;
+    border: 1px solid white;
+    border-radius: 10%;
+}
+
+
+/***SEARCH***/
+.search-section {
+    /*margin-top: -80px;*/
+    color: white;
+    text-align: center;
+}
+
+.search-form {
+    padding: 5% 0;
+}
+
+.result-section {
+    padding: 5% 0 5% 0;
+    margin: 5% 0 7% 0;
+    /*min-height: 100px;*/
+    text-align: center;
+    /*padding: 5% 0;*/
+    color: white;
+    display: block;
+}
+
+/***PROJECT***/
+.project-section {
+    padding: 5% 0;
+    text-align: center;
+    color: white;
+}
+
+.project-section a {
+    display: inline-flex;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 1px 5px;
+    border: 1px solid white;
+    border-radius: 10%;
+}
+
+.project-add {
+    margin: 5% 0 0 0;
+}
+
+.project-add a {
+    border-radius: 3%;
+    padding: 15px 20px;
+    color: #ff584a;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    background-color: white;
+}
+
+.project-add a:hover {
+    color: white;
+    background-color: #a466ea;
+}
+
+.project-section input[type=text] {
+    border-bottom: 2px solid white;
+}
+
+
+/***ADMIN***/
+.admin-section {
+    padding: 5% 0;
+    text-align: center;
+    color: white;
+    margin-bottom: 10%;
+}
+
+.admin-management {
+    padding: 1% 0 5% 0;
+}
+
+.admin-management a {
+    display: inline-flex;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 1px 5px;
+    border-radius: 10%;
+    border: 1px solid #ff7a6f;
+    color: #ff7266;
+    -webkit-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.admin-management a:hover {
+    color: #ff4842;
+    border-color: #ff4842;
+}
+
+.project-delete {
+    margin: 5% 0 0 0;
+}
+
+.project-delete a {
+    border-radius: 3%;
+    padding: 15px 20px;
+    color: #ff584a;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    background-color: white;
+}
+
+.project-delete a:hover {
+    color: white;
+    background-color: #a466ea;
+}

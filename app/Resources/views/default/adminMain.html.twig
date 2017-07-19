@@ -1,0 +1,38 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}Administration du site{% endblock %}
+
+{% block body %}
+    <div class="admin-section brown">
+        <div class="admin-management">
+            <h4>Administration</h4>
+            {% for user in users %}
+                {% if user.admin %}
+                    {{ user.email }}
+                    <a href="{{ path('removeAdmin', {'slug': user.iduser}) }}">
+                        Retrograder
+                    </a>
+                    <br/>
+                {% endif %}
+            {% endfor %}
+            <h4>Utilisateurs</h4>
+            {% for user in users %}
+                {% if not user.admin %}
+                    {{ user.email }}
+                    <a href="{{ path('AddAdmin', {'slug': user.iduser}) }}">
+                        Promouvoir Admin
+                    </a>
+                    <br/>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <h4>Technologies & Groupes</h4>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        {{ form_start(form2) }}
+        {{ form_widget(form2) }}
+        {{ form_end(form2) }}
+    </div>
+{% endblock %}

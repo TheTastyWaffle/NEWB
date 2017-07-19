@@ -1,0 +1,44 @@
+{% extends 'baseLogged.html.twig' %}
+
+{% block title %}Mes Projets{% endblock %}
+
+{% block body %}
+    <div class="project-section red">
+        Invitation(s):
+        {% for project in invitation %}
+            <a href="{{ path('projectDetails', {'project': project.idprojet}) }}">
+                {{ project.name }}
+                Texte:
+                {{ project.text }}
+            </a>
+            <br/>
+        {% endfor %}
+        <br/>
+
+        <h4>Projet(s) en cours</h4>
+
+        Mes projets:
+        {% for project in owned %}
+            <a href="{{ path('projectDetails', {'project': project.idprojet}) }}">
+                {{ project.name }}
+            </a>
+            <br/>
+        {% endfor %}
+        <br/>
+
+        Projet(s) rejoins:
+        {% for project in projects %}
+            <a href="{{ path('projectDetails', {'project': project.idprojet}) }}">
+                {{ project.name }}
+            </a>
+            <br/>
+        {% endfor %}
+        <br/>
+
+        <div class="project-add">
+            <a href="{{ path('addProject') }}">
+                Nouveau projet
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Comment" table="comment">
+    <indexes>
+      <index name="comment___fk1" columns="idsender"/>
+      <index name="comment_user_iduser_fk" columns="idreciever"/>
+    </indexes>
+    <id name="idcomment" type="integer" column="idcomment">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="date" type="datetime" column="date" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <field name="text" type="text" column="text" length="65535" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idreciever" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="idreciever" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idsender" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="idsender" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

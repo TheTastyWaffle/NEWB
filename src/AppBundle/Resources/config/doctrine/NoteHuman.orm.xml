@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\NoteHuman" table="note_human">
+    <indexes>
+      <index name="note_human_user_iduser_fk" columns="iduser"/>
+      <index name="note_human_user_iduser_fk2" columns="idsender"/>
+    </indexes>
+    <id name="idnoteHuman" type="integer" column="idnote_human">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="note" type="integer" column="note" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <many-to-one field="idsender" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="idsender" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="iduser" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="iduser" referenced-column-name="iduser"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
