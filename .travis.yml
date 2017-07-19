@@ -3,10 +3,14 @@ language: php
 dist: trusty
 
 php:
-- 7.1.1
+    - 7.1.1
 
 before_install:
     - composer update
+    - mysql -e 'CREATE DATABASE IF NOT EXISTS newbDB;'
+
+services:
+    - mysql
 
 install:
     - php bin/console doctrine:database:create
