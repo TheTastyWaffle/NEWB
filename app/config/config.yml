@@ -43,11 +43,11 @@ twig:
 doctrine:
     dbal:
         driver: pdo_mysql
-        host: 127.0.0.1
+        host: db
         port: 3306
         dbname: newbDB
         user: root
-        password:
+        password: root
         charset: UTF8
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml

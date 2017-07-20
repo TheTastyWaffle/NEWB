@@ -12,6 +12,7 @@ services:
              MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
              MYSQL_DATABASE: ${MYSQL_DATABASE}
              MYSQL_USER: ${MYSQL_USER}
+             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     php:
         build: php7-fpm
@@ -20,8 +21,7 @@ services:
         links:
             - db:mysqldb
         volumes:
-            - /Users/Quentin/Developpement/PHP/newb/newb:/var/www/symfony
-            - ./logs/symfony:/var/www/symfony/app/logs
+            - ../:/var/www/symfony
     nginx:
         build: nginx
         ports:
@@ -32,5 +32,3 @@ services:
             - php
         depends_on:
             - php
-        volumes:
-            - ./logs/nginx/:/var/log/nginx
