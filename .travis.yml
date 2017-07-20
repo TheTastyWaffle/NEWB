@@ -1,3 +1,4 @@
+##############CONFIG###############
 language: php
 
 dist: trusty
@@ -11,31 +12,26 @@ services:
 
 
 ###############BUILD###############
-
 before_install:
     - composer update
-    - mysql -e 'CREATE DATABASE IF NOT EXISTS newbDB;'
 
 install:
-    # - php bin/console doctrine:database:create --if-not-exists
-    #- php bin/console doctrine:schema:update --force
 
 before_script:
-    #- php bin/console server:run
+    - mysql -e 'CREATE DATABASE IF NOT EXISTS newbDB;'
 
 script:
     - phpunit
 
 after_script:
-    # delete db for tests (newbDB -> doctrine)
+    - mysql -e 'DROP DATABASE IF EXISTS newbDB;'
 
 
 
-############NOTIFICATION#########
-
+############NOTIFICATION###########
 notifications:
   slack:
       rooms:
-          - jobobagr:YmqvkAPUlhqRKEYXCgJ1qVQa#devops #could be encrypted but welp
+          - jobobagr:YmqvkAPUlhqRKEYXCgJ1qVQa#devops #could be encrypted but oh well
       on_success: always  #default: change
       on_failure: always  #default: always
