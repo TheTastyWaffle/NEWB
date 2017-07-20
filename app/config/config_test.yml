@@ -19,11 +19,11 @@ swiftmailer:
 doctrine:
     dbal:
         driver: pdo_mysql
-        host: db
+        host: 127.0.0.1
         port: 3306
         dbname: newbDB
         user: root
-        password: root
+        password:
         charset: UTF8
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
