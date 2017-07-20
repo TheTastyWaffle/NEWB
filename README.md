@@ -2,18 +2,19 @@ newb
 ====
 
 A Symfony project created on June 14, 2017, 4:28 pm.
+## Available at : http://127.0.0.1:8080OA
 
-###Init projet:
+### Init projet:
     $ git clone https://GrasQuentin@bitbucket.org/GrasQuentin/news.git
     $ cd news/
     $ composer update
     $ php bin/console doctrine:database:create
     $ php bin/console doctrine:schema:update --force
 
-###Run
-    $ php bin/console server:run  
+### Run
+    $ php bin/console server:run
 
-###Testing
+### Testing
 Create a database :
     dbname: testDB
     user: root
@@ -24,23 +25,22 @@ Create a database :
     $ phpunit --version
     $ phpunit
 
-###Run with Docker
+
+## Run with Docker
 Download and install Docker : https://www.docker.com
 
-Init project :
+### Init project :
 
     $ cd docker
     $ docker-composer up -d
     $ docker-composer exec php bash
     $ php bin/console doctrine:database:create
     $ php bin/console doctrine:schema:update --force
-    
-Stop server : 
+
+### Stop server :
 
     $ docker-composer down
-    
-Run :
-    
+
+### Run :
+
     $ docker-composer up -d
-    
-Available at : http://127.0.0.1:8080 
