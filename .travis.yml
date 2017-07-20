@@ -17,7 +17,7 @@ before_install:
     - mysql -e 'CREATE DATABASE IF NOT EXISTS newbDB;'
 
 install:
-   # - php bin/console doctrine:database:create --if-not-exists
+    # - php bin/console doctrine:database:create --if-not-exists
     #- php bin/console doctrine:schema:update --force
 
 before_script:
