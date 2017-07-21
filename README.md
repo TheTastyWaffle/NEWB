@@ -1,5 +1,4 @@
 newb
-====
 
 A Symfony project created on June 14, 2017, 4:28 pm.
 ## Available at : http://127.0.0.1:8080OA
